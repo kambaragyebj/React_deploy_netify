@@ -1,0 +1,12 @@
+https://forums.docker.com/t/npm-install-in-docker-tutorial-is-taking-forever/139328/10
+
+I faced a similar problem, on my virtual machine everything worked Ubuntu, but on Windows
+there was a problem
+
+I added to RUN npm install --force --loglevel verbose, logging level and saw that I had a problem with the certificate
+=> => # npm http fetch GET https://registry.npmjs.org/npm attempt 1 failed with SELF_SIGNED_CERT_IN_CHAIN
+Before NPM install I added RUN npm config set strict-ssl false
+And it worked
+
+
+https://forums.docker.com/t/npm-install-taking-forever-when-building-docker-image/137187
